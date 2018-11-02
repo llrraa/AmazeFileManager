@@ -80,15 +80,15 @@ public class HybridFile {
             if (!isDirectory) this.path += name;
             else if (!name.endsWith("/")) this.path += name + "/";
             else this.path += name;
-		} else if(path.startsWith("ssh://") || isSftp()) {
+        } else if (path.startsWith("ssh://") || isSftp()) {
             this.path += "/" + name;
         } else if (isRoot() && path.equals("/")) {
             // root of filesystem, don't concat another '/'
             this.path += name;
         } else {
             this.path += "/" + name;
-        }    
-	}
+        }
+    }
 
     public void generateMode(Context context) {
         if (path.startsWith("smb://")) {
